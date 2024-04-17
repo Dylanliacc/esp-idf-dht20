@@ -1,16 +1,21 @@
 #include <stdio.h>
 #include "dht20.h"
+#include "esp_log.h"
+// 在项目配置中启用详细日志
+#define LOG_LOCAL_LEVEL ESP_LOG_VERBOSE
+
 
 /* prototype function */
 void dht20_read_task(void *param);
 
 /* declare rtos task handle */
 TaskHandle_t read_data_h;
-
+static const char *TAG = "MAIN_process";
 void app_main(void)
 {
-
+    ESP_LOGW(TAG,"OUTSIDE");
     dht20_begin();
+    ESP_LOGW(TAG,"INSIDE");
     xTaskCreate(dht20_read_task, "read_values", (256 * 11), NULL, tskIDLE_PRIORITY, &read_data_h);
 }
 

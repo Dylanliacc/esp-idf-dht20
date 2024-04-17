@@ -11,10 +11,10 @@ menu "TOOLBOX SETUP"
                     default 0
                 config I2C_GPIO_SCL
                     int "GPIO For I2C SCL"
-                    default 36
+                    default 5
                 config I2C_GPIO_SDA
                     int "GPIO For I2C SDA"
-                    default 35
+                    default 4
                 config I2C_GPIO_SCL_PULLUP
                     bool "Enable SCL Pullup resistor"
                     default false
